@@ -15,4 +15,18 @@ class Circle
     y = tmpY;
     diam = tmpDiam;
   }
+
+  void circleDisplay()
+  {
+    color(c);
+    stroke(0);
+    fill(circlefill);
+    ellipse(x, y, diam, diam);
+  }
+
+  void circleReduceSize()
+  {
+    diam = diam +1;
+    diam = diam +1;
+  }
 }
