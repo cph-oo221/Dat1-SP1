@@ -5,15 +5,18 @@ class Circle
   int x;
   int y;
   int diam;
+  int diam1;
+  
 
   // constructor for circel
-  Circle(color tmpC, int tmpCirclefill, int tmpX, int tmpY, int tmpDiam)
+  Circle(color tmpC, int tmpCirclefill, int tmpX, int tmpY, int tmpDiam, int tmpDiam1)
   {
     c = tmpC;
     circlefill = tmpCirclefill;
     x = tmpX;
     y = tmpY;
     diam = tmpDiam;
+    diam1 = tmpDiam1;
   }
 
   void circleDisplay()
@@ -26,7 +29,7 @@ class Circle
 
   void circleReduceSize()
   {
-    diam = diam +1;
-    diam = diam +1;
+    diam = diam -1;
+    diam1 = diam1 -1;
   }
 }
