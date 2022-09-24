@@ -1,27 +1,42 @@
 class ScoreCounter
 {
+  int sizeText;
+  color scoreColor;
+  
+  int scoreNumber;
   float textX;
   float textY;
-  float textZ;
+
 
 
 // constructor for circel
-  ScoreCounter(float tempX, float tempY, float tempZ)
+  ScoreCounter(color tempColor, int tempSizeText, int tempNumber, float tempX, float tempY)
   {
+    scoreColor = tempColor;
+    sizeText = tempSizeText;
+    scoreNumber = tempNumber;
     textX = tempX;
     textY = tempY;
-    textZ = tempZ;
   }
   
 // display the text on screen for the score
   void scoreCounterDisplay()
   {
-    
+    fill(scoreColor);
+    textSize(sizeText);
+    text(scoreNumber, textX, textY);
   }
   
 // updating the score on the screen
   void scoreCounterUpdate()
   {
-    
-  }
+   if (mousePressed)
+   {
+      int counter = scoreNumber;
+      for(int i = 0; i<=counter; i++)
+      {
+        scoreNumber++;
+      }
+   }
+  }  
 }

@@ -37,6 +37,10 @@ class Circle
     }
   }
   
+  void mouseClicked()
+  {
+    
+  }
   
   
 }

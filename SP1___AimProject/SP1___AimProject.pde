@@ -1,14 +1,16 @@
-int backgroundColor = color(255,255,255);
+int backgroundColor = color(255, 255, 255);
 Circle mainCircle;
 ScoreCounter gameCounter;
 
 void setup()
 {
-  size(1200,800);
+  size(1200, 800);
   frameRate(30);
   background(backgroundColor); 
   
-  mainCircle = new Circle(color(255,0,0), 0, 200, 300, 125, 255);
+  
+  gameCounter = new ScoreCounter(color(56, 255, 54), 80, 0, 580, 100);
+  mainCircle = new Circle(color(255, 0, 0), 0, 200, 300, 125, 255);
   
   
 }
@@ -25,10 +27,11 @@ void draw()
   gameCounter.scoreCounterDisplay();
   gameCounter.scoreCounterUpdate();
   
+  mainCircle.circleDisplay();
+  mainCircle.circleReduceSize();
   
   
-  
-  for(int i = mainCircle.length - 1; i>=0; i--)
+ /* for(int i = mainCircle.length - 1; i>=0; i--)
   {
     mainCircle[i].circleDisplay();
     mainCircle[i].circleReduceSize();
@@ -36,7 +39,7 @@ void draw()
     {
       mainCircle.splice(i, 1);
     }
-  }
+  } **/
    
  
  
