@@ -2,14 +2,14 @@ class ScoreCounter
 {
   int sizeText;
   color scoreColor;
-  
   int scoreNumber;
   float textX;
   float textY;
+  String text = "Score Counter: ";
 
 
 
-// constructor for circel
+  // constructor for circel
   ScoreCounter(color tempColor, int tempSizeText, int tempNumber, float tempX, float tempY)
   {
     scoreColor = tempColor;
@@ -19,24 +19,28 @@ class ScoreCounter
     textY = tempY;
   }
   
-// display the text on screen for the score
+  // display the text on screen for the score
   void scoreCounterDisplay()
   {
     fill(scoreColor);
     textSize(sizeText);
-    text(scoreNumber, textX, textY);
+    text(text + scoreNumber, textX, textY);
   }
   
-// updating the score on the screen
+  // updating the score on the screen
   void scoreCounterUpdate()
   {
-   if (mousePressed)
+    
+  }  
+}
+
+
+
+/* if (mousePressed)
    {
       int counter = scoreNumber;
       for(int i = 0; i<=counter; i++)
       {
         scoreNumber++;
       }
-   }
-  }  
-}
+   } **/
