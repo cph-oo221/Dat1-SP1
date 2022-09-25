@@ -1,4 +1,4 @@
-class ScoreCounter
+public class ScoreCounter
 {
   int sizeText;
   color scoreColor;
@@ -28,7 +28,7 @@ class ScoreCounter
   }
   
   // updating the score on the screen
-  void scoreCounterUpdate()
+  public void scoreCounterUpdate()
   {
     
   }  

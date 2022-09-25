@@ -29,11 +29,20 @@ class Circle
 // , this.lifespan
   void circleReduceSize()
   {
-
     if (diam>=0)
     {
       diam--;
       lifespan--;
+    }
+    
+    
+    float distance = dist(mouseX, mouseY, x, y);
+    if(mousePressed)
+    {
+      if(distance < diam)
+      {
+        diam=-1;
+      }
     }
   }
 }
