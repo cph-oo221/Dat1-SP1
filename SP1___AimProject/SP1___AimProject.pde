@@ -5,7 +5,7 @@ int backgroundBlack = color(0, 0, 0);
 int randCircleX = (int) random(215,950);
 int randCircleY = (int) random(215,650);
 
-Circle[] mainCircle = new Circle[1];
+Circle[] mainCircle = new Circle[40];
 ScoreCounter[] gameCounter = new ScoreCounter[1];
 
 void setup()
@@ -16,7 +16,6 @@ void setup()
 
 
   gameCounter[0] = new ScoreCounter(color(56, 255, 54), 60, 0, 400, 100);
-  
   
   for(int i = 0; i < mainCircle.length; i++)
   {
@@ -35,41 +34,7 @@ void draw()
   // Circle
   for(int i = 0; i < mainCircle.length; i++)
   {
-    
     mainCircle[i].circleDisplay();
     mainCircle[i].circleReduceSize();
-
   }
 }
-
-void mousePressed()
-{
-  for(int i = 0; i < gameCounter[0].scoreNumber; i++)
-  {
-    float myDist = dist(mainCircle[i].x, mainCircle[i].y,  mouseX, mouseY);
-    if(myDist<=mainCircle[i].diam)
-    {
-      gameCounter[0].scoreNumber++;
-    }
-  }
-}
-
-/* for(int i = 0; i < gameCounter.scoreNumber; i++)
-  {
-    float dist = sqrt((mainCircle.x - mouseX) * (mainCircle.x - mouseX) + (mainCircle.y - mouseY) * (mainCircle.y - mouseY));
-    if(dist<=1)
-    {
-      gameCounter.scoreNumber++;
-    }
-  } **/
-
-
-/* for(int i = mainCircle.length - 1; i>=0; i--)
-   {
-   mainCircle[i].circleDisplay();
-   mainCircle[i].circleReduceSize();
-   if (mainCircle[i].lifespan < 0)
-   {
-   mainCircle.splice(i, 1);
-   }
-   } **/

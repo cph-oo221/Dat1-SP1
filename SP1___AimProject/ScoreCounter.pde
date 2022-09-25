@@ -28,19 +28,14 @@ public class ScoreCounter
   }
   
   // updating the score on the screen
-  public void scoreCounterUpdate()
+  void scoreCounterUpdate()
   {
-    
-  }  
-}
-
-
-
-/* if (mousePressed)
-   {
-      int counter = scoreNumber;
+    /* int counter = scoreNumber;
       for(int i = 0; i<=counter; i++)
       {
         scoreNumber++;
       }
-   } **/
+    
+    **/
+  }  
+}

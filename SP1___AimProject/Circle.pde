@@ -26,16 +26,18 @@ class Circle
      fill(circlefill);
      ellipse(x, y, diam, diam);
   }
-// , this.lifespan
+  
+  
   void circleReduceSize()
   {
+    // Make Circle over time smaller.
     if (diam>=0)
     {
       diam--;
       lifespan--;
     }
     
-    
+    // when a circle is pressed it disappears
     float distance = dist(mouseX, mouseY, x, y);
     if(mousePressed)
     {
