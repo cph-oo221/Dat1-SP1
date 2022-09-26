@@ -1,4 +1,4 @@
-public class ScoreCounter
+class ScoreCounter
 {
   int sizeText;
   color scoreColor;
@@ -28,14 +28,11 @@ public class ScoreCounter
   }
   
   // updating the score on the screen
-  void scoreCounterUpdate()
+   void scoreCounterUpdate()
   {
-    /* int counter = scoreNumber;
-      for(int i = 0; i<=counter; i++)
-      {
-        scoreNumber++;
-      }
-    
-    **/
+     /* if(mousePressed)
+    {
+      scoreNumber++;
+    } **/
   }  
 }

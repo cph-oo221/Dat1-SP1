@@ -5,18 +5,16 @@ class Circle
   int x;
   int y;
   int diam;
-  int lifespan;
 
 
   // constructor for circel
-  Circle(color tmpC, int tmpCirclefill, int tmpX, int tmpY, int tmpDiam, int tempLifespan)
+  Circle(color tmpC, int tmpCirclefill, int tmpX, int tmpY, int tmpDiam)
   {
     c = tmpC;
     circlefill = tmpCirclefill;
     x = tmpX;
     y = tmpY;
     diam = tmpDiam;
-    lifespan = tempLifespan;
   }
 
   void circleDisplay()
@@ -30,11 +28,16 @@ class Circle
   
   void circleReduceSize()
   {
-    // Make Circle over time smaller.
+    // Make Circle smaller over time.
     if (diam>=0)
     {
       diam--;
-      lifespan--;
+      
+      if(diam<=0)
+      {
+        x=-2000;
+        y=-2000;
+      }
     }
     
     // when a circle is pressed it disappears
@@ -44,6 +47,9 @@ class Circle
       if(distance < diam)
       {
         diam=-1;
+        x=-2000;
+        y=-2000;
+        
       }
     }
   }
