@@ -30,9 +30,10 @@ class ScoreCounter
   // updating the score on the screen
    void scoreCounterUpdate()
   {
-     /* if(mousePressed)
+    //float distance = dist(mouseX, mouseY, x, y);
+    if(mousePressed)
     {
       scoreNumber++;
-    } **/
+    } 
   }  
 }

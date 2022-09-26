@@ -40,7 +40,7 @@ class Circle
       }
     }
     
-    // when a circle is pressed it disappears
+    // When a circle is pressed it disappears
     float distance = dist(mouseX, mouseY, x, y);
     if(mousePressed)
     {
