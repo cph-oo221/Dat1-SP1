@@ -3,13 +3,14 @@ int backgroundWhite = color(255, 255, 255);
 int backgroundBlack = color(0, 0, 0);
 
 // adjust location of circle so it don't hit the text "Score Counter: " and the next circle position.
-int randCircleX = (int) random(215,950);
-int randCircleY = (int) random(215,650);
+int randCircleX = (int) random(215, 950);
+int randCircleY = (int) random(215, 650);
 
 Circle[] mainCircle = new Circle[40];
 
 ScoreCounter[] pointCounter = new ScoreCounter[1];
 
+TopDisplay[] topRectDisplay = new TopDisplay[1];
 
 
 void setup()
@@ -20,27 +21,44 @@ void setup()
 
 
   pointCounter[0] = new ScoreCounter(color(56, 255, 54), 60, 0, 340, 100);
-  
-  
-  for(int i = 0; i < mainCircle.length; i++)
+
+
+  for (int i = 0; i < mainCircle.length; i++)
   {
-    mainCircle[i] = new Circle(color(255, 0, 0), 0, (int) random(215,950), (int) random(215,650), 125);
+    mainCircle[i] = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
   }
-  
+
+
+  topRectDisplay[0] = new TopDisplay(0, 0, 1199, 155, 0, color(147, 144, 144));
 }
 
 void draw()
 {
   background(backgroundWhite);
 
+  // TopDisplay
+  topRectDisplay[0].TopDisplayRect();
+
   // ScoreCounter
   pointCounter[0].scoreCounterDisplay();
-  
-  
+
+
   // Circle
-  for(int i = 0; i < mainCircle.length; i++)
+
+  for (Circle c : mainCircle)
   {
-    mainCircle[i].circleDisplay();
-    mainCircle[i].circleReduceSize();
+    if(mainCircle.length>1)
+    {
+      c.circleDisplay();
+      c.circleReduceSize();
+    }
   }
+
 }
+
+  /*
+for(int i = 0; i < mainCircle.length; i++)
+   {
+   
+   }
+   **/

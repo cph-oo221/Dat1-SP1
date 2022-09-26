@@ -8,19 +8,22 @@ class TopDisplay
   int rectStrokeColor;
   color rectColor;
   
-  TopDisplay(float tempRectXpos, float tempRectYpos, float tempeRctWidthPos, float tempRectHeightPos)
+  TopDisplay(float tempRectXpos, float tempRectYpos, float tempeRctWidthPos, float tempRectHeightPos, int tempRectStrokeColor, color tempRectColor)
   {
     rectXpos = tempRectXpos;
     rectYpos = tempRectYpos;
     rectWidthPos = tempeRctWidthPos;
     rectHeightPos = tempRectHeightPos;
+    
+    rectStrokeColor = tempRectStrokeColor;
+    rectColor = tempRectColor;  
   }
   
   void TopDisplayRect()
   {
     stroke(rectStrokeColor);
     fill(rectColor);
-    rectMode(CENTER);
+    rectMode(CORNER);
     rect(rectXpos, rectYpos, rectWidthPos, rectHeightPos);
   }
 }

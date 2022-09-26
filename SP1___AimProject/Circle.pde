@@ -55,6 +55,8 @@ class Circle
         // Makes the point counter go op with 1 every time a circle gets clicked
         pointCounter[0].scoreCounterUpdate();
         
+        println("Bang, Bang!!");
+        
       }
     }
   }  

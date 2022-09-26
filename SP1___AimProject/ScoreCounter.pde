@@ -11,7 +11,6 @@ class ScoreCounter
   String scoreMax = " / 40";
 
 
-
   // constructor for circel
   ScoreCounter(color tempColorOFscoreCounter, int tempSizeOFtext, int tempPointScore, float tempTextXpos, float tempTextYpos)
   {
