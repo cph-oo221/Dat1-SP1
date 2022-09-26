@@ -1,3 +1,4 @@
+// global variable
 int backgroundWhite = color(255, 255, 255);
 int backgroundBlack = color(0, 0, 0);
 
@@ -5,10 +6,8 @@ int backgroundBlack = color(0, 0, 0);
 int randCircleX = (int) random(215,950);
 int randCircleY = (int) random(215,650);
 
-
-
 Circle[] mainCircle = new Circle[40];
-ScoreCounter[] gameCounter = new ScoreCounter[1];
+ScoreCounter[] pointCounter = new ScoreCounter[1];
 
 void setup()
 {
@@ -17,7 +16,7 @@ void setup()
   background(backgroundBlack);
 
 
-  gameCounter[0] = new ScoreCounter(color(56, 255, 54), 60, 0, 400, 100);
+  pointCounter[0] = new ScoreCounter(color(56, 255, 54), 60, 0, 340, 100);
   
   
   for(int i = 0; i < mainCircle.length; i++)
@@ -32,8 +31,7 @@ void draw()
   background(backgroundWhite);
 
   // ScoreCounter
-  gameCounter[0].scoreCounterDisplay();
-  gameCounter[0].scoreCounterUpdate();
+  pointCounter[0].scoreCounterDisplay();
   
   
   // Circle

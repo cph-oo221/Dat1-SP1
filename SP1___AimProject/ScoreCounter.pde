@@ -1,39 +1,38 @@
 class ScoreCounter
 {
-  int sizeText;
-  color scoreColor;
-  int scoreNumber;
-  float textX;
-  float textY;
-  String text = "Score Counter: ";
+  // global variable
+  int sizeOFtext;
+  float textXpos;
+  float textYpos;
+  
+  color colorOFscoreCounter;
+  int pointScore;
+  String currentScore = "Score Counter: ";
+  String scoreMax = " / 40";
 
 
 
   // constructor for circel
-  ScoreCounter(color tempColor, int tempSizeText, int tempNumber, float tempX, float tempY)
+  ScoreCounter(color tempColorOFscoreCounter, int tempSizeOFtext, int tempPointScore, float tempTextXpos, float tempTextYpos)
   {
-    scoreColor = tempColor;
-    sizeText = tempSizeText;
-    scoreNumber = tempNumber;
-    textX = tempX;
-    textY = tempY;
+    colorOFscoreCounter = tempColorOFscoreCounter;
+    sizeOFtext = tempSizeOFtext;
+    pointScore = tempPointScore;
+    textXpos = tempTextXpos;
+    textYpos = tempTextYpos;
   }
   
   // display the text on screen for the score
   void scoreCounterDisplay()
   {
-    fill(scoreColor);
-    textSize(sizeText);
-    text(text + scoreNumber, textX, textY);
+    fill(colorOFscoreCounter);
+    textSize(sizeOFtext);
+    text(currentScore + pointScore + scoreMax, textXpos, textYpos);
   }
   
   // updating the score on the screen
    void scoreCounterUpdate()
   {
-    //float distance = dist(mouseX, mouseY, x, y);
-    if(mousePressed)
-    {
-      scoreNumber++;
-    } 
+      pointScore++;
   }  
 }

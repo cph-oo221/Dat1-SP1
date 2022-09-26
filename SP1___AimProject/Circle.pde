@@ -1,5 +1,6 @@
 class Circle
 {
+  // global variable
   color c;
   int circlefill;
   int x;
@@ -40,6 +41,7 @@ class Circle
       }
     }
     
+    
     // When a circle is pressed it disappears
     float distance = dist(mouseX, mouseY, x, y);
     if(mousePressed)
@@ -50,7 +52,10 @@ class Circle
         x=-2000;
         y=-2000;
         
+        // Makes the point counter go op with 1 every time a circle gets clicked
+        pointCounter[0].scoreCounterUpdate();
+        
       }
     }
-  }
+  }  
 }
