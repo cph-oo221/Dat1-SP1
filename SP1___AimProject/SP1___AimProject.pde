@@ -7,7 +7,10 @@ int randCircleX = (int) random(215,950);
 int randCircleY = (int) random(215,650);
 
 Circle[] mainCircle = new Circle[40];
+
 ScoreCounter[] pointCounter = new ScoreCounter[1];
+
+
 
 void setup()
 {
