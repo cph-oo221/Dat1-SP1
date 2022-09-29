@@ -26,7 +26,6 @@ void setup()
 
   circle = new Circle(color(255, 0, 0), 0, randCircleX, randCircleY, 125);
   circlesSpawned++;
-
 }
 
 void draw()
@@ -44,9 +43,11 @@ void draw()
 
   circle.circleReduceSize();
 
-  if (circle.diam < 0) {
+  if (circle.diam < 0)
+  {
     circlesDone++;
-    if (circlesSpawned < maxCircles) {
+    if (circlesSpawned < maxCircles)
+    {
       circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
       circlesSpawned++;
     }
@@ -62,8 +63,6 @@ void draw()
     println("You scored: " + score.points + " / " + maxCircles);
     noLoop();
   }
-
-
 }
 
 void mousePressed()
@@ -79,7 +78,8 @@ void mousePressed()
     println("Bang, Bang!!");
 
     circlesDone++;
-    if (circlesSpawned < maxCircles) {
+    if (circlesSpawned < maxCircles)
+    {
       circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
       circlesSpawned++;
     }
@@ -88,15 +88,15 @@ void mousePressed()
 
 
 void topDisplayRect()
-{ 
+{
   float Xpos = 0;
   float Ypos = 0;
   float rectWidthPos = 1199;
   float rectHeightPos = 155;
-  
+
   int rectStrokeColor = 0;
   color rectColor = color(147, 144, 144);
-  
+
   stroke(rectStrokeColor);
   fill(rectColor);
   rectMode(CORNER);
