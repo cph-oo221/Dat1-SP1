@@ -6,12 +6,14 @@ int backgroundBlack = color(0, 0, 0);
 int randCircleX = (int) random(215, 950);
 int randCircleY = (int) random(215, 650);
 
+// circlesSpawned: how many circles has been diplay, and the max amount of circles
 int circlesSpawned = 0;
 int maxCircles = 40;
+
 int circlesDone = 0;
 
-Circle circle;
 
+Circle circle;
 Score score;
 
 
@@ -28,53 +30,35 @@ void setup()
   circlesSpawned++;
 }
 
+
+
 void draw()
 {
   background(backgroundWhite);
 
-  // TopDisplay
-  topDisplayRect();
+  // TopDisplay's box for score
+  score.topDisplay();
 
   // ScoreCounter
-  score.scoreCounterDisplay();
+  score.scoreDisplay();
 
 
   circle.circleDisplay();
-
   circle.circleReduceSize();
-
-  if (circle.diam < 0)
-  {
-    circlesDone++;
-    if (circlesSpawned < maxCircles)
-    {
-      circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
-      circlesSpawned++;
-    }
-  }
-
-  if (circlesDone >= maxCircles)
-  {
-    background(backgroundWhite);
-    fill(175);
-    textSize(120);
-    text("Game Done!", 270, 400);
-    score.scoreCounterDisplay();
-    println("You scored: " + score.points + " / " + maxCircles);
-    noLoop();
-  }
+  circle.updateCircleAndScore();
 }
 
 void mousePressed()
 {
+  // If in side circle
   float distance = dist(mouseX, mouseY, circle.x, circle.y);
-
   if (distance < circle.diam)
   {
 
     // Makes the point counter go op with 1 every time a circle gets clicked
     score.addScore();
-
+    
+    // Println: "Bang, Bang!!" when a circle get pressed
     println("Bang, Bang!!");
 
     circlesDone++;
@@ -84,21 +68,4 @@ void mousePressed()
       circlesSpawned++;
     }
   }
-}
-
-
-void topDisplayRect()
-{
-  float Xpos = 0;
-  float Ypos = 0;
-  float rectWidthPos = 1199;
-  float rectHeightPos = 155;
-
-  int rectStrokeColor = 0;
-  color rectColor = color(147, 144, 144);
-
-  stroke(rectStrokeColor);
-  fill(rectColor);
-  rectMode(CORNER);
-  rect(Xpos, Ypos, rectWidthPos, rectHeightPos);
 }
