@@ -2,37 +2,39 @@ class Score
 {
   // global variable
   int sizeOFtext;
-  float textXpos;
-  float textYpos;
+  float Xpos;
+  float Ypos;
 
-  color colorOFscoreCounter;
-  int pointScore;
-  String currentScore = "Score Counter: ";
-  String scoreMax = " / 40";
+  color textColor;
+  int points;
+  String currentScore = "Circles: ";
+  
 
 
   // constructor for circel
-  Score(color tempColorOFscoreCounter, int tempSizeOFtext, int tempPointScore, float tempTextXpos, float tempTextYpos)
+  Score(color textColor, int sizeOFtext, int points, float Xpos, float Ypos)
   {
-    colorOFscoreCounter = tempColorOFscoreCounter;
-    sizeOFtext = tempSizeOFtext;
-    pointScore = tempPointScore;
-    textXpos = tempTextXpos;
-    textYpos = tempTextYpos;
+    this.textColor = textColor;
+    this.sizeOFtext = sizeOFtext;
+    this.points = points;
+    this.Xpos = Xpos;
+    this.Ypos = Ypos;
   }
+
 
   // display the text on screen for the score
   void scoreCounterDisplay()
   {
-    fill(colorOFscoreCounter);
+    fill(textColor);
     textSize(sizeOFtext);
-    text(currentScore + pointScore + scoreMax, textXpos, textYpos);
+    text(currentScore + circlesSpawned + " / " + maxCircles, Xpos, Ypos);
+    text("score: " + points, 740, 100);
   }
+
 
   // updating the score on the screen
   void addScore()
   {
-    pointScore++;
-    
+    points++;
   }
 }

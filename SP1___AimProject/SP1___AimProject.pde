@@ -8,10 +8,7 @@ int randCircleY = (int) random(215, 650);
 
 int circlesSpawned = 0;
 int maxCircles = 40;
-
-
-
-
+int circlesDone = 0;
 
 Circle circle;
 
@@ -25,7 +22,7 @@ void setup()
   background(backgroundBlack);
 
 
-  score = new Score(color(56, 255, 54), 60, 0, 340, 100);
+  score = new Score(color(56, 255, 54), 60, 0, 280, 100);
 
   circle = new Circle(color(255, 0, 0), 0, randCircleX, randCircleY, 125);
   circlesSpawned++;
@@ -47,23 +44,26 @@ void draw()
 
   circle.circleReduceSize();
 
-
   if (circle.diam < 0) {
-    circle = new Circle(color(255, 0, 0), 0, randCircleX, randCircleY, 125);
-    circlesSpawned++;
+    circlesDone++;
+    if (circlesSpawned < maxCircles) {
+      circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
+      circlesSpawned++;
+    }
   }
 
-  if (circlesSpawned > maxCircles)
+  if (circlesDone >= maxCircles)
   {
     background(backgroundWhite);
-
     fill(175);
     textSize(120);
     text("Game Done!", 270, 400);
     score.scoreCounterDisplay();
-    println("You scored: " + score.pointScore);
+    println("You scored: " + score.points + " / " + maxCircles);
     noLoop();
   }
+
+
 }
 
 void mousePressed()
@@ -72,15 +72,17 @@ void mousePressed()
 
   if (distance < circle.diam)
   {
-    circle.diam=-1;
 
     // Makes the point counter go op with 1 every time a circle gets clicked
     score.addScore();
 
     println("Bang, Bang!!");
 
-    circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
-    circlesSpawned++;
+    circlesDone++;
+    if (circlesSpawned < maxCircles) {
+      circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
+      circlesSpawned++;
+    }
   }
 }
 

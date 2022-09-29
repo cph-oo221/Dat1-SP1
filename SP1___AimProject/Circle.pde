@@ -9,13 +9,13 @@ class Circle
 
 
   // constructor for circel
-  Circle(color tmpC, int tmpCirclefill, int tmpX, int tmpY, int tmpDiam)
+  Circle(color c, int circlefill, int x, int y, int diam)
   {
-    c = tmpC;
-    circlefill = tmpCirclefill;
-    x = tmpX;
-    y = tmpY;
-    diam = tmpDiam;
+    this.c = c;
+    this.circlefill = circlefill;
+    this.x = x;
+    this.y = y;
+    this.diam = diam;
   }
 
   void circleDisplay()
@@ -25,8 +25,6 @@ class Circle
     fill(circlefill);
     ellipse(x, y, diam, diam);
   }
-
-
 
   void circleReduceSize()
   {
