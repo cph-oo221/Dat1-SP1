@@ -1,3 +1,5 @@
+
+
 // global variable
 int backgroundWhite = color(255, 255, 255);
 int backgroundBlack = color(0, 0, 0);
@@ -6,11 +8,13 @@ int backgroundBlack = color(0, 0, 0);
 int randCircleX = (int) random(215, 950);
 int randCircleY = (int) random(215, 650);
 
-Circle[] mainCircle = new Circle[40];
 
-ScoreCounter[] pointCounter = new ScoreCounter[1];
 
-TopDisplay[] topRectDisplay = new TopDisplay[1];
+Circle circle;
+
+ScoreCounter score;
+
+TopDisplay topRectDisplay;
 
 
 void setup()
@@ -20,16 +24,13 @@ void setup()
   background(backgroundBlack);
 
 
-  pointCounter[0] = new ScoreCounter(color(56, 255, 54), 60, 0, 340, 100);
+  score = new ScoreCounter(color(56, 255, 54), 60, 0, 340, 100);
+
+  circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
 
 
-  for (int i = 0; i < mainCircle.length; i++)
-  {
-    mainCircle[i] = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
-  }
-
-
-  topRectDisplay[0] = new TopDisplay(0, 0, 1199, 155, 0, color(147, 144, 144));
+  topRectDisplay = new TopDisplay(0, 0, 1199, 155, 0, color(147, 144, 144));
+  
 }
 
 void draw()
@@ -37,28 +38,31 @@ void draw()
   background(backgroundWhite);
 
   // TopDisplay
-  topRectDisplay[0].TopDisplayRect();
+  topRectDisplay.TopDisplayRect();
 
   // ScoreCounter
-  pointCounter[0].scoreCounterDisplay();
+  score.scoreCounterDisplay();
 
 
-  // Circle
-
-  for (Circle c : mainCircle)
-  {
-    if(mainCircle.length>1)
-    {
-      c.circleDisplay();
-      c.circleReduceSize();
-    }
-  }
-
+  circle.circleDisplay();
+  
+  circle.circleReduceSize();
 }
 
-  /*
-for(int i = 0; i < mainCircle.length; i++)
-   {
-   
-   }
-   **/
+void mousePressed()
+{
+  float distance = dist(mouseX, mouseY, circle.x, circle.y);
+
+  if (distance < circle.diam)
+  {
+    circle.diam=-1;
+    
+    // Makes the point counter go op with 1 every time a circle gets clicked
+    score.addScore();
+
+    println("Bang, Bang!!");
+    circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
+  }
+  
+  
+}

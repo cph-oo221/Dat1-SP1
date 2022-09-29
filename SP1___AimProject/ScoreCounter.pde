@@ -4,7 +4,7 @@ class ScoreCounter
   int sizeOFtext;
   float textXpos;
   float textYpos;
-  
+
   color colorOFscoreCounter;
   int pointScore;
   String currentScore = "Score Counter: ";
@@ -20,7 +20,7 @@ class ScoreCounter
     textXpos = tempTextXpos;
     textYpos = tempTextYpos;
   }
-  
+
   // display the text on screen for the score
   void scoreCounterDisplay()
   {
@@ -28,10 +28,11 @@ class ScoreCounter
     textSize(sizeOFtext);
     text(currentScore + pointScore + scoreMax, textXpos, textYpos);
   }
-  
+
   // updating the score on the screen
-   void scoreCounterUpdate()
+  void addScore()
   {
-      pointScore++;
-  }  
+    pointScore++;
+    
+  }
 }
