@@ -2,14 +2,14 @@
 int backgroundWhite = color(255, 255, 255);
 int backgroundBlack = color(0, 0, 0);
 
-// adjust location of circle so it don't hit the text "Score Counter: " and the next circle position.
-// if the variable name is'nt in used, it's beacues it stacks the circle on top for ecahother
+// adjust location of circle so it doesn't hit the text "Score Counter: " and the next circle position.
+// if the variable name isn't in used, it's because it stacks the circle on top for each other
 int randCircleX = (int) random(215, 950);
 int randCircleY = (int) random(215, 650);
 
-// circlesSpawned: how many circles has been diplay, and the max amount of circles
+// circlesSpawned: how many circles has been display, and the max amount of circles
 int circlesSpawned = 0;
-int maxCircles = 40;
+int maxCircles = 30;
 
 int circlesDone = 0;
 
@@ -42,7 +42,7 @@ void draw()
   // TopDisplay's box for score
   score.topDisplay();
 
-  // ScoreCounter
+  // Display Score
   score.scoreDisplay();
 
 
@@ -58,13 +58,16 @@ void mousePressed()
   if (distance < circle.diam)
   {
 
-    // Makes the point counter go op with 1 every time a circle gets clicked
+    // Makes the point counter go up with 1 every time a circle gets clicked
     score.addScore();
     
-    // Println: "Bang, Bang!!" when a circle get pressed
+    // Prints: "Bang, Bang!!" when a circle get pressed
     println("Bang, Bang!!");
-
+    
+    // when a circle is pressed add 1 to circlesDone.
     circlesDone++;
+    
+    // if circlesSpawned is smaller then maxCircles make new circle and add 1 to circlesSpawned.
     if (circlesSpawned < maxCircles)
     {
       circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
@@ -76,6 +79,7 @@ void mousePressed()
 
 void keyPressed()
 {
+  // if the r/R key gets pressed it executes the function reset from class Reset.
   if(key == 'r' || key == 'R')
   {
     reset.reset();

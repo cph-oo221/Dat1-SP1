@@ -34,7 +34,7 @@ class Score
   }
 
 
-  // updating the point +1
+  // updating the point by 1
   void addScore()
   {
     points++;
@@ -42,7 +42,7 @@ class Score
 
   void topDisplay()
   {
-    // lokal variables for rectangle
+    // local variables for rectangle
     float Xpos = 0;
     float Ypos = 0;
     float rectWidthPos = 1199;

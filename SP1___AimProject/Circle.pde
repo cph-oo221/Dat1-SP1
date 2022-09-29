@@ -32,7 +32,7 @@ class Circle
     {
       diam--;
       
-      // when diam is smaller then or equal to 0 the circle teleport of the screen
+      // when diam is smaller than or equal to 0, then the circle teleport of the screen
       if (diam<=0)
       {
         x=-2000;
@@ -55,9 +55,13 @@ class Circle
     int Ypos2 = 600;
     int Fill2 = color(255, 0, 0);
     
+    
+    // when diam is smaller than o, then circlesDone goes up by 1.
     if (circle.diam < 0)
     {
       circlesDone++;
+      
+      // if circlesSpawned is smaller than maxCircles, then make a new circle and add 1 to circlesSpawned
       if (circlesSpawned < maxCircles)
       {
         circle = new Circle(color(255, 0, 0), 0, (int) random(215, 950), (int) random(215, 650), 125);
@@ -67,7 +71,6 @@ class Circle
 
     if (circlesDone >= maxCircles)
     {
-      
       // End Screen
       background(backgroundWhite);
       fill(Fill1);
