@@ -1,4 +1,4 @@
-class ScoreCounter
+class Score
 {
   // global variable
   int sizeOFtext;
@@ -12,7 +12,7 @@ class ScoreCounter
 
 
   // constructor for circel
-  ScoreCounter(color tempColorOFscoreCounter, int tempSizeOFtext, int tempPointScore, float tempTextXpos, float tempTextYpos)
+  Score(color tempColorOFscoreCounter, int tempSizeOFtext, int tempPointScore, float tempTextXpos, float tempTextYpos)
   {
     colorOFscoreCounter = tempColorOFscoreCounter;
     sizeOFtext = tempSizeOFtext;
