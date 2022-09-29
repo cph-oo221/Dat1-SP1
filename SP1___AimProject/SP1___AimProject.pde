@@ -3,6 +3,7 @@ int backgroundWhite = color(255, 255, 255);
 int backgroundBlack = color(0, 0, 0);
 
 // adjust location of circle so it don't hit the text "Score Counter: " and the next circle position.
+// if the variable name is'nt in used, it's beacues it stacks the circle on top for ecahother
 int randCircleX = (int) random(215, 950);
 int randCircleY = (int) random(215, 650);
 
@@ -15,6 +16,7 @@ int circlesDone = 0;
 
 Circle circle;
 Score score;
+Reset reset;
 
 
 void setup()
@@ -22,9 +24,10 @@ void setup()
   size(1200, 800);
   frameRate(60);
   background(backgroundBlack);
+  
+  reset = new Reset();
 
-
-  score = new Score(color(56, 255, 54), 60, 0, 280, 100);
+  score = new Score(color(56, 255, 54), 60, 0, 250, 100);
 
   circle = new Circle(color(255, 0, 0), 0, randCircleX, randCircleY, 125);
   circlesSpawned++;
@@ -68,4 +71,13 @@ void mousePressed()
       circlesSpawned++;
     }
   }
+}
+
+
+void keyPressed()
+{
+  if(key == 'r' || key == 'R')
+  {
+    reset.reset();
+  } 
 }

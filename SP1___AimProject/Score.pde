@@ -13,7 +13,6 @@ class Score
   String currentCricle = "Circles: ";
 
 
-
   // constructor for score
   Score(color textColor, int sizeOFtext, int points, float Xpos1, float Ypos1)
   {
@@ -31,7 +30,7 @@ class Score
     fill(textColor);
     textSize(sizeOFtext);
     text(currentCricle + circlesSpawned + " / " + maxCircles, Xpos1, Ypos1);
-    text("score: " + points, Xpos2, Ypos2);
+    text("Score: " + points, Xpos2, Ypos2);
   }
 
 
